@@ -118,18 +118,18 @@ categories ──< products ──< order_items >── orders >── customers
 ```
 
 ---
-zoom: 0.85
+zoom: 0.8
 ---
 
 # Struktur Tabel
 
-| Tabel | Isi | Kolom penting |
+| Tabel | Isi | Daftar kolom lengkap |
 |---|---|---|
 | `categories` | Kategori produk | `category_id`, `name` |
-| `products` | Katalog produk | `price`, `stock`, `rating` (boleh `NULL`) |
-| `customers` | Pelanggan | `city` (boleh `NULL`), `joined_at` |
-| `orders` | Header pesanan | `order_date`, `status`, `shipping_fee` (boleh `NULL`) |
-| `order_items` | Rincian barang | `quantity`, `unit_price` |
+| `products` | Katalog produk | `product_id`, `name`, `category_id`, `price`, `stock`, `rating` (boleh `NULL`) |
+| `customers` | Pelanggan | `customer_id`, `name`, `city` (boleh `NULL`), `joined_at` |
+| `orders` | Header pesanan | `order_id`, `customer_id`, `order_date`, `status`, `shipping_fee` (boleh `NULL`) |
+| `order_items` | Rincian barang | `item_id`, `order_id`, `product_id`, `quantity`, `unit_price` |
 
 **Status pesanan:** `menunggu`, `dikirim`, `selesai`, `dibatalkan`
 
@@ -148,9 +148,76 @@ CREATE DATABASE kopikita CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE kopikita;
 ```
 
-**2. Buat 5 tabel** lalu **3. isi data** dengan menjalankan skrip dari file panduan praktikum (Bagian 0, Langkah 2 dan 3).
+**2. Buat 5 tabel** dengan kode DDL pada tiga slide berikutnya, lalu **3. isi data** dengan menjalankan skrip dari file panduan praktikum (Bagian 0, Langkah 3).
 
 **Alat:** MySQL 8.0+ atau MariaDB 10.6+, dengan MySQL Workbench, DBeaver, phpMyAdmin, atau terminal `mysql`.
+
+---
+zoom: 0.85
+---
+
+# DDL (1/3): `categories` dan `products`
+
+```sql
+CREATE TABLE categories (
+  category_id INT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE products (
+  product_id INT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  category_id INT NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  stock INT NOT NULL,
+  rating DECIMAL(2,1) NULL,
+  FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+```
+
+---
+zoom: 0.85
+---
+
+# DDL (2/3): `customers` dan `orders`
+
+```sql
+CREATE TABLE customers (
+  customer_id INT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  city VARCHAR(50) NULL,
+  joined_at DATE NOT NULL
+);
+
+CREATE TABLE orders (
+  order_id INT PRIMARY KEY,
+  customer_id INT NOT NULL,
+  order_date DATE NOT NULL,
+  status VARCHAR(20) NOT NULL,
+  shipping_fee DECIMAL(10,2) NULL,
+  FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+```
+
+---
+zoom: 0.85
+---
+
+# DDL (3/3): `order_items`
+
+```sql
+CREATE TABLE order_items (
+  item_id INT PRIMARY KEY,
+  order_id INT NOT NULL,
+  product_id INT NOT NULL,
+  quantity INT NOT NULL,
+  unit_price DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(order_id),
+  FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+```
+
+Buat tabel **berurutan** seperti di atas, karena tabel yang memakai `FOREIGN KEY` harus dibuat setelah tabel yang dirujuknya.
 
 ---
 zoom: 0.9
@@ -1516,8 +1583,4 @@ zoom: 0.75
 layout: end
 ---
 
-# Terima Kasih ☕
-
-Selamat berlatih! Kesalahan di praktikum adalah bahan belajar terbaik.
-
-Lebih baik salah di sini daripada di laporan perusahaan.
+# Thank you
