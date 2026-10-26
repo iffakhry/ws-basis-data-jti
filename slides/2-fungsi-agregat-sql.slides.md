@@ -148,7 +148,7 @@ CREATE DATABASE kopikita CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE kopikita;
 ```
 
-**2. Buat 5 tabel** dengan kode DDL pada tiga slide berikutnya, lalu **3. isi data** dengan menjalankan skrip dari file panduan praktikum (Bagian 0, Langkah 3).
+**2. Buat 5 tabel** dengan kode DDL pada tiga slide berikutnya, lalu **3. isi data** dengan kode `INSERT` pada lima slide setelah DDL.
 
 **Alat:** MySQL 8.0+ atau MariaDB 10.6+, dengan MySQL Workbench, DBeaver, phpMyAdmin, atau terminal `mysql`.
 
@@ -218,6 +218,125 @@ CREATE TABLE order_items (
 ```
 
 Buat tabel **berurutan** seperti di atas, karena tabel yang memakai `FOREIGN KEY` harus dibuat setelah tabel yang dirujuknya.
+
+---
+zoom: 0.8
+---
+
+# INSERT (1/5): `categories` dan `customers`
+
+```sql
+INSERT INTO categories VALUES
+(1,'Kopi'),(2,'Teh'),(3,'Peralatan'),(4,'Camilan'),(5,'Merchandise');
+
+INSERT INTO customers VALUES
+(1,'Andi','Jember','2025-11-03'),
+(2,'Budi','Surabaya','2025-12-15'),
+(3,'Citra','Jember','2026-01-20'),
+(4,'Dewi','Malang','2026-02-11'),
+(5,'Eko',NULL,'2026-03-05'),
+(6,'Fitri','Surabaya','2026-04-18'),
+(7,'Gita','Jember','2026-05-09'),
+(8,'Hadi','Banyuwangi','2026-06-30'),
+(9,'Indah','Jember','2026-07-14'),
+(10,'Joko','Malang','2026-08-01');
+```
+
+---
+zoom: 0.8
+---
+
+# INSERT (2/5): `products`
+
+```sql
+INSERT INTO products VALUES
+(1,'Kopi Arabika Gayo 250g',1,85000,40,4.8),
+(2,'Kopi Robusta Lampung 250g',1,55000,60,4.5),
+(3,'Kopi Toraja 250g',1,95000,25,4.7),
+(4,'Teh Hijau Premium',2,45000,80,4.3),
+(5,'Teh Melati',2,35000,100,4.1),
+(6,'Teh Hitam Kayu Aro',2,40000,0,NULL),
+(7,'Coffee Grinder Manual',3,250000,15,4.6),
+(8,'French Press 600ml',3,175000,20,4.4),
+(9,'Dripper V60',3,120000,0,NULL),
+(10,'Keripik Singkong',4,25000,150,4.0),
+(11,'Kacang Sangrai',4,30000,90,NULL),
+(12,'Cookies Kopi',4,48000,35,4.2);
+```
+
+---
+zoom: 0.75
+---
+
+# INSERT (3/5): `orders`
+
+```sql
+INSERT INTO orders VALUES
+(1,1,'2026-07-05','selesai',15000),
+(2,2,'2026-07-12','selesai',20000),
+(3,1,'2026-07-28','selesai',NULL),
+(4,3,'2026-08-03','selesai',15000),
+(5,4,'2026-08-10','dibatalkan',18000),
+(6,5,'2026-08-21','selesai',NULL),
+(7,2,'2026-08-30','selesai',20000),
+(8,6,'2026-09-04','selesai',20000),
+(9,3,'2026-09-15','selesai',15000),
+(10,7,'2026-09-22','dikirim',15000),
+(11,1,'2026-10-01','selesai',NULL),
+(12,8,'2026-10-06','selesai',25000),
+(13,4,'2026-10-12','menunggu',18000),
+(14,6,'2026-10-15','dikirim',20000),
+(15,2,'2026-10-18','dikirim',20000);
+```
+
+---
+zoom: 0.8
+---
+
+# INSERT (4/5): `order_items` bagian 1
+
+```sql
+INSERT INTO order_items VALUES
+(1,1,1,2,80000),
+(2,1,5,1,35000),
+(3,2,7,1,250000),
+(4,3,2,3,50000),
+(5,3,10,2,25000),
+(6,4,4,2,45000),
+(7,4,5,2,35000),
+(8,5,3,1,95000),
+(9,6,8,1,175000),
+(10,6,1,1,85000),
+(11,7,2,1,55000),
+(12,7,12,3,48000),
+(13,8,9,1,120000),
+(14,8,3,2,95000);
+```
+
+---
+zoom: 0.8
+---
+
+# INSERT (5/5): `order_items` bagian 2
+
+```sql
+INSERT INTO order_items VALUES
+(15,9,1,1,85000),
+(16,9,11,2,30000),
+(17,10,7,1,250000),
+(18,10,2,1,55000),
+(19,11,4,3,45000),
+(20,11,10,5,25000),
+(21,12,8,2,175000),
+(22,12,12,2,48000),
+(23,13,6,2,40000),
+(24,14,1,2,85000),
+(25,14,3,1,95000),
+(26,15,5,4,35000),
+(27,15,10,3,25000);
+```
+
+Jalankan berurutan: `categories`, `customers`, `products`, `orders`, lalu kedua bagian `order_items`.
 
 ---
 zoom: 0.9
