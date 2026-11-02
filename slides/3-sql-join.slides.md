@@ -8,7 +8,6 @@ layout: cover
 class: text-center
 canvasWidth: 1100
 aspectRatio: 16/9
-colorSchema: light
 highlighter: shiki
 lineNumbers: false
 transition: slide-left
@@ -34,6 +33,7 @@ CATATAN PEMAKAIAN
 -->
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -45,29 +45,29 @@ zoom: 0.9
 
 ### Pertemuan 1 (4 jam)
 
-| Sesi | Durasi | Materi |
-|---|---|---|
-| A | 30 mnt | Persiapan DB + konsep PK/FK |
-| B | 60 mnt | `INNER JOIN` |
-| C | 15 mnt | Istirahat |
-| D | 60 mnt | `LEFT JOIN` |
-| E | 30 mnt | `RIGHT JOIN` + rangkuman |
-| F | 45 mnt | **Lembar Kerja 1** (20 soal) |
+| Sesi | Durasi | Materi                       |
+| ---- | ------ | ---------------------------- |
+| A    | 30 mnt | Persiapan DB + konsep PK/FK  |
+| B    | 60 mnt | `INNER JOIN`                 |
+| C    | 15 mnt | Istirahat                    |
+| D    | 60 mnt | `LEFT JOIN`                  |
+| E    | 30 mnt | `RIGHT JOIN` + rangkuman     |
+| F    | 45 mnt | **Lembar Kerja 1** (20 soal) |
 
 </div>
 <div>
 
 ### Pertemuan 2 (4 jam)
 
-| Sesi | Durasi | Materi |
-|---|---|---|
-| A | 15 mnt | Review |
-| B | 45 mnt | `FULL JOIN` |
-| C | 45 mnt | Anti-Join |
-| D | 15 mnt | Istirahat |
-| E | 45 mnt | `ON` vs `WHERE`, duplikasi, `NULL` |
-| F | 30 mnt | JOIN + agregasi, VIEW, performa |
-| G | 45 mnt | **Lembar Kerja 2** (20 soal) |
+| Sesi | Durasi | Materi                             |
+| ---- | ------ | ---------------------------------- |
+| A    | 15 mnt | Review                             |
+| B    | 45 mnt | `FULL JOIN`                        |
+| C    | 45 mnt | Anti-Join                          |
+| D    | 15 mnt | Istirahat                          |
+| E    | 45 mnt | `ON` vs `WHERE`, duplikasi, `NULL` |
+| F    | 30 mnt | JOIN + agregasi, VIEW, performa    |
+| G    | 45 mnt | **Lembar Kerja 2** (20 soal)       |
 
 </div>
 </div>
@@ -79,6 +79,7 @@ zoom: 0.9
 </div>
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -95,15 +96,16 @@ Setelah praktikum ini, kamu mampu:
 
 <div class="mt-6 text-sm">
 
-| Ikon | Arti | Ikon | Arti |
-|---|---|---|---|
-| 🧠 | Konsep | 💡 | Insight industri |
-| ⌨️ | Praktik: ketik sendiri | ⚠️ | Awas, kesalahan umum |
-| 🔮 | Prediksi dulu | ✅ | Cek hasil |
+| Ikon | Arti                   | Ikon | Arti                 |
+| ---- | ---------------------- | ---- | -------------------- |
+| 🧠   | Konsep                 | 💡   | Insight industri     |
+| ⌨️   | Praktik: ketik sendiri | ⚠️   | Awas, kesalahan umum |
+| 🔮   | Prediksi dulu          | ✅   | Cek hasil            |
 
 </div>
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -130,6 +132,7 @@ Semua laporan ini butuh **JOIN**.
 Database yang sama dipakai di **semua** latihan, sehingga hasil mudah dibandingkan.
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -178,6 +181,7 @@ erDiagram
 <div class="text-xs text-center">Satu kategori punya banyak produk · satu pelanggan punya banyak pesanan · satu pesanan punya banyak item</div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -189,21 +193,21 @@ zoom: 0.8
 
 **categories**
 
-| Kolom | Tipe | Kunci |
-|---|---|---|
-| id | INT | PK |
-| name | VARCHAR(50) | |
+| Kolom | Tipe        | Kunci |
+| ----- | ----------- | ----- |
+| id    | INT         | PK    |
+| name  | VARCHAR(50) |       |
 
 </div>
 <div>
 
 **customers**
 
-| Kolom | Tipe | Kunci |
-|---|---|---|
-| id | INT | PK |
-| name | VARCHAR(100) | |
-| city | VARCHAR(50) | |
+| Kolom | Tipe         | Kunci  |
+| ----- | ------------ | ------ |
+| id    | INT          | PK     |
+| name  | VARCHAR(100) |        |
+| city  | VARCHAR(50)  |        |
 | email | VARCHAR(100) | UNIQUE |
 
 </div>
@@ -211,13 +215,13 @@ zoom: 0.8
 
 **products**
 
-| Kolom | Tipe | Kunci |
-|---|---|---|
-| id | INT | PK |
-| category_id | INT NULL | FK → categories |
-| name | VARCHAR(100) | |
-| price | DECIMAL(12,2) | |
-| stock | INT | |
+| Kolom       | Tipe          | Kunci           |
+| ----------- | ------------- | --------------- |
+| id          | INT           | PK              |
+| category_id | INT NULL      | FK → categories |
+| name        | VARCHAR(100)  |                 |
+| price       | DECIMAL(12,2) |                 |
+| stock       | INT           |                 |
 
 </div>
 </div>
@@ -229,6 +233,7 @@ zoom: 0.8
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -240,12 +245,12 @@ zoom: 0.8
 
 **orders**
 
-| Kolom | Tipe | Kunci |
-|---|---|---|
-| id | INT | PK |
-| customer_id | INT NULL | FK → customers |
-| order_date | DATE | |
-| status | VARCHAR(20) | pending / completed / cancelled |
+| Kolom       | Tipe        | Kunci                           |
+| ----------- | ----------- | ------------------------------- |
+| id          | INT         | PK                              |
+| customer_id | INT NULL    | FK → customers                  |
+| order_date  | DATE        |                                 |
+| status      | VARCHAR(20) | pending / completed / cancelled |
 
 `customer_id` = `NULL` → **pesanan tamu** (guest checkout)
 
@@ -254,12 +259,12 @@ zoom: 0.8
 
 **order_items**
 
-| Kolom | Tipe | Kunci |
-|---|---|---|
-| id | INT | PK |
-| order_id | INT | FK → orders |
-| product_id | INT | FK → products |
-| quantity | INT | |
+| Kolom      | Tipe          | Kunci                |
+| ---------- | ------------- | -------------------- |
+| id         | INT           | PK                   |
+| order_id   | INT           | FK → orders          |
+| product_id | INT           | FK → products        |
+| quantity   | INT           |                      |
 | unit_price | DECIMAL(12,2) | harga saat transaksi |
 
 </div>
@@ -272,6 +277,7 @@ zoom: 0.8
 </div>
 
 ---
+
 layout: default
 zoom: 0.7
 ---
@@ -309,6 +315,7 @@ CREATE TABLE products (
 ```
 
 ---
+
 layout: default
 zoom: 0.7
 ---
@@ -343,6 +350,7 @@ Setelah ini, isi data pada slide berikutnya.
 </div>
 
 ---
+
 layout: default
 zoom: 0.7
 ---
@@ -373,6 +381,7 @@ INSERT INTO products (id, category_id, name, price, stock) VALUES
 ```
 
 ---
+
 layout: default
 zoom: 0.7
 ---
@@ -409,6 +418,7 @@ INSERT INTO order_items (id, order_id, product_id, quantity, unit_price) VALUES
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -420,44 +430,45 @@ zoom: 0.8
 
 **customers**
 
-| id | name | city |
-|---|---|---|
-| 1 | Andi Pratama | Jember |
-| 2 | Budi Santoso | Surabaya |
-| 3 | Citra Lestari | Jember |
-| 4 | Dewi Anggraini | Malang |
-| 5 | Eko Wijaya | Banyuwangi |
-| 6 | Fina Rahma | Jember |
+| id  | name           | city       |
+| --- | -------------- | ---------- |
+| 1   | Andi Pratama   | Jember     |
+| 2   | Budi Santoso   | Surabaya   |
+| 3   | Citra Lestari  | Jember     |
+| 4   | Dewi Anggraini | Malang     |
+| 5   | Eko Wijaya     | Banyuwangi |
+| 6   | Fina Rahma     | Jember     |
 
 **categories**
 
-| id | name |
-|---|---|
-| 1 | Elektronik |
-| 2 | Fashion |
-| 3 | Buku |
-| 4 | Olahraga |
+| id  | name       |
+| --- | ---------- |
+| 1   | Elektronik |
+| 2   | Fashion    |
+| 3   | Buku       |
+| 4   | Olahraga   |
 
 </div>
 <div>
 
 **products**
 
-| id | category_id | name | price |
-|---|---|---|---|
-| 1 | 1 | Laptop Aero 14 | 9.500.000 |
-| 2 | 1 | Mouse Wireless | 150.000 |
-| 3 | 2 | Kaos Polos | 75.000 |
-| 4 | 2 | Jaket Hoodie | 250.000 |
-| 5 | 3 | Novel Laskar | 90.000 |
-| 6 | 3 | Buku SQL Dasar | 120.000 |
-| 7 | **NULL** | Powerbank 10000mAh | 200.000 |
-| 8 | 1 | Headset Gaming | 350.000 |
+| id  | category_id | name               | price     |
+| --- | ----------- | ------------------ | --------- |
+| 1   | 1           | Laptop Aero 14     | 9.500.000 |
+| 2   | 1           | Mouse Wireless     | 150.000   |
+| 3   | 2           | Kaos Polos         | 75.000    |
+| 4   | 2           | Jaket Hoodie       | 250.000   |
+| 5   | 3           | Novel Laskar       | 90.000    |
+| 6   | 3           | Buku SQL Dasar     | 120.000   |
+| 7   | **NULL**    | Powerbank 10000mAh | 200.000   |
+| 8   | 1           | Headset Gaming     | 350.000   |
 
 </div>
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -469,38 +480,39 @@ zoom: 0.8
 
 **orders**
 
-| id | customer_id | order_date | status |
-|---|---|---|---|
-| 1 | 1 | 2026-10-01 | completed |
-| 2 | 1 | 2026-10-05 | completed |
-| 3 | 2 | 2026-10-07 | completed |
-| 4 | 3 | 2026-10-10 | cancelled |
-| 5 | 4 | 2026-10-12 | completed |
-| 6 | 2 | 2026-10-15 | pending |
-| 7 | **NULL** | 2026-10-18 | completed |
+| id  | customer_id | order_date | status    |
+| --- | ----------- | ---------- | --------- |
+| 1   | 1           | 2026-10-01 | completed |
+| 2   | 1           | 2026-10-05 | completed |
+| 3   | 2           | 2026-10-07 | completed |
+| 4   | 3           | 2026-10-10 | cancelled |
+| 5   | 4           | 2026-10-12 | completed |
+| 6   | 2           | 2026-10-15 | pending   |
+| 7   | **NULL**    | 2026-10-18 | completed |
 
 </div>
 <div>
 
 **order_items**
 
-| id | order_id | product_id | qty | unit_price |
-|---|---|---|---|---|
-| 1 | 1 | 1 | 1 | 9.500.000 |
-| 2 | 1 | 2 | 1 | 150.000 |
-| 3 | 2 | 3 | 2 | 75.000 |
-| 4 | 3 | 5 | 1 | 90.000 |
-| 5 | 3 | 6 | 1 | 120.000 |
-| 6 | 4 | 4 | 1 | 250.000 |
-| 7 | 5 | 2 | 2 | 150.000 |
-| 8 | 5 | 3 | 1 | 75.000 |
-| 9 | 6 | 6 | 3 | 120.000 |
-| 10 | 7 | 7 | 1 | 200.000 |
+| id  | order_id | product_id | qty | unit_price |
+| --- | -------- | ---------- | --- | ---------- |
+| 1   | 1        | 1          | 1   | 9.500.000  |
+| 2   | 1        | 2          | 1   | 150.000    |
+| 3   | 2        | 3          | 2   | 75.000     |
+| 4   | 3        | 5          | 1   | 90.000     |
+| 5   | 3        | 6          | 1   | 120.000    |
+| 6   | 4        | 4          | 1   | 250.000    |
+| 7   | 5        | 2          | 2   | 150.000    |
+| 8   | 5        | 3          | 1   | 75.000     |
+| 9   | 6        | 6          | 3   | 120.000    |
+| 10  | 7        | 7          | 1   | 200.000    |
 
 </div>
 </div>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -509,13 +521,13 @@ zoom: 0.85
 
 Supaya perbedaan tiap JOIN terlihat jelas:
 
-| Data | Keterangan | Dipakai untuk |
-|---|---|---|
-| **Eko & Fina** | Pelanggan yang **belum pernah** memesan | `LEFT JOIN`, anti-join |
-| **Pesanan #7** | Pesanan tamu, `customer_id` = `NULL` | `RIGHT JOIN`, `FULL JOIN` |
-| **Kategori Olahraga** | Kategori **tanpa produk** | `LEFT` / `RIGHT JOIN` |
-| **Produk Powerbank** | Produk **tanpa kategori** | `INNER` vs `LEFT JOIN` |
-| **Produk Headset Gaming** | Produk yang **belum pernah terjual** | Anti-join |
+| Data                      | Keterangan                              | Dipakai untuk             |
+| ------------------------- | --------------------------------------- | ------------------------- |
+| **Eko & Fina**            | Pelanggan yang **belum pernah** memesan | `LEFT JOIN`, anti-join    |
+| **Pesanan #7**            | Pesanan tamu, `customer_id` = `NULL`    | `RIGHT JOIN`, `FULL JOIN` |
+| **Kategori Olahraga**     | Kategori **tanpa produk**               | `LEFT` / `RIGHT JOIN`     |
+| **Produk Powerbank**      | Produk **tanpa kategori**               | `INNER` vs `LEFT JOIN`    |
+| **Produk Headset Gaming** | Produk yang **belum pernah terjual**    | Anti-join                 |
 
 <div class="mt-4 text-sm">
 
@@ -524,6 +536,7 @@ Supaya perbedaan tiap JOIN terlihat jelas:
 </div>
 
 ---
+
 layout: section
 ---
 
@@ -532,6 +545,7 @@ layout: section
 INNER JOIN · LEFT JOIN · RIGHT JOIN
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -545,13 +559,14 @@ Tabel `orders` hanya menyimpan `customer_id` (angka), **bukan** nama pelanggan. 
 
 **Solusi: normalisasi.** Setiap fakta disimpan **sekali**, lalu dihubungkan lewat kunci.
 
-| Istilah | Arti | Contoh |
-|---|---|---|
-| **Primary Key (PK)** | Pengenal unik tiap baris | `customers.id` |
-| **Foreign Key (FK)** | Kolom yang menunjuk ke PK tabel lain | `orders.customer_id` → `customers.id` |
-| **JOIN** | Menggabungkan baris 2+ tabel lewat kondisi penghubung | `orders` digabung `customers` |
+| Istilah              | Arti                                                  | Contoh                                |
+| -------------------- | ----------------------------------------------------- | ------------------------------------- |
+| **Primary Key (PK)** | Pengenal unik tiap baris                              | `customers.id`                        |
+| **Foreign Key (FK)** | Kolom yang menunjuk ke PK tabel lain                  | `orders.customer_id` → `customers.id` |
+| **JOIN**             | Menggabungkan baris 2+ tabel lewat kondisi penghubung | `orders` digabung `customers`         |
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -574,6 +589,7 @@ Kamu harus melihat `customer_id = 2`, lalu mencarinya **manual** di tabel `custo
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -597,18 +613,19 @@ FROM orders JOIN customers ON orders.customer_id = customers.id
 ```
 
 ---
+
 layout: default
 zoom: 0.85
 ---
 
 # Ringkasan 4 Jenis JOIN
 
-| JOIN | Yang ditampilkan | Baris tanpa pasangan |
-|---|---|---|
-| `INNER JOIN` | Hanya yang **cocok di kedua tabel** | Dibuang dari kedua sisi |
-| `LEFT JOIN` | **Semua** baris kiri + pasangan kanan | Kiri tetap tampil, kolom kanan `NULL` |
-| `RIGHT JOIN` | **Semua** baris kanan + pasangan kiri | Kanan tetap tampil, kolom kiri `NULL` |
-| `FULL JOIN` | **Semua** baris kedua tabel | Keduanya tetap tampil, sisi tanpa pasangan `NULL` |
+| JOIN         | Yang ditampilkan                      | Baris tanpa pasangan                              |
+| ------------ | ------------------------------------- | ------------------------------------------------- |
+| `INNER JOIN` | Hanya yang **cocok di kedua tabel**   | Dibuang dari kedua sisi                           |
+| `LEFT JOIN`  | **Semua** baris kiri + pasangan kanan | Kiri tetap tampil, kolom kanan `NULL`             |
+| `RIGHT JOIN` | **Semua** baris kanan + pasangan kiri | Kanan tetap tampil, kolom kiri `NULL`             |
+| `FULL JOIN`  | **Semua** baris kedua tabel           | Keduanya tetap tampil, sisi tanpa pasangan `NULL` |
 
 <div class="mt-6 text-sm">
 
@@ -617,6 +634,7 @@ Pegang tabel ini. Kamu akan **membuktikannya sendiri** lewat query pada sesi-ses
 </div>
 
 ---
+
 layout: section
 ---
 
@@ -625,6 +643,7 @@ layout: section
 Hanya baris yang **cocok** di kedua tabel
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -643,6 +662,7 @@ zoom: 0.9
 > Analogi: daftar hadir rapat dicocokkan dengan daftar undangan. Yang tampil hanya orang yang **diundang dan hadir**.
 
 ---
+
 layout: two-cols
 zoom: 0.85
 ---
@@ -670,14 +690,14 @@ INNER JOIN customers
 
 <div class="text-xs">
 
-| id | order_date | name |
-|---|---|---|
-| 1 | 2026-10-01 | Andi Pratama |
-| 2 | 2026-10-05 | Andi Pratama |
-| 3 | 2026-10-07 | Budi Santoso |
-| 4 | 2026-10-10 | Citra Lestari |
-| 5 | 2026-10-12 | Dewi Anggraini |
-| 6 | 2026-10-15 | Budi Santoso |
+| id  | order_date | name           |
+| --- | ---------- | -------------- |
+| 1   | 2026-10-01 | Andi Pratama   |
+| 2   | 2026-10-05 | Andi Pratama   |
+| 3   | 2026-10-07 | Budi Santoso   |
+| 4   | 2026-10-10 | Citra Lestari  |
+| 5   | 2026-10-12 | Dewi Anggraini |
+| 6   | 2026-10-15 | Budi Santoso   |
 
 </div>
 
@@ -686,6 +706,7 @@ Pesanan **#7** (tamu, `customer_id` = `NULL`) **hilang** karena tidak punya pasa
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -704,11 +725,12 @@ Hasil identik, tapi jauh lebih ringkas. `JOIN` tanpa kata `INNER` pun berarti `I
 
 <div class="mt-4 p-3 rounded bg-blue-50 text-sm">
 
-💡 **Industri:** selalu beri **prefix alias** pada setiap kolom (`o.id`, bukan `id`). Selain mencegah error *ambiguous*, query tetap aman saat seseorang menambah kolom bernama sama di tabel lain.
+💡 **Industri:** selalu beri **prefix alias** pada setiap kolom (`o.id`, bukan `id`). Selain mencegah error _ambiguous_, query tetap aman saat seseorang menambah kolom bernama sama di tabel lain.
 
 </div>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -734,6 +756,7 @@ Kolom `id` ada di **kedua** tabel, jadi MySQL tidak tahu harus memilih yang mana
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -760,6 +783,7 @@ ORDER BY o.order_date DESC;
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -787,6 +811,7 @@ ORDER BY o.id, p.name;
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -818,6 +843,7 @@ ORDER BY c.name, o.order_date;
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -843,6 +869,7 @@ Petunjuk: perhatikan **Powerbank**.
 </v-click>
 
 ---
+
 layout: center
 class: text-center
 ---
@@ -850,6 +877,7 @@ class: text-center
 # ☕ Istirahat 15 Menit
 
 ---
+
 layout: section
 ---
 
@@ -858,6 +886,7 @@ layout: section
 **Semua** baris tabel kiri tetap tampil
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -877,6 +906,7 @@ Jika tidak ada pasangan, kolom tabel kanan diisi **`NULL`**.
 > Analogi: daftar absensi **seluruh** mahasiswa (kiri) dengan nilai ujian (kanan). Semua tetap tertulis, yang belum ujian nilainya **kosong**.
 
 ---
+
 layout: two-cols
 zoom: 0.8
 ---
@@ -905,22 +935,23 @@ ORDER BY c.id;
 
 <div class="text-xs">
 
-| id | name | order_id | order_date |
-|---|---|---|---|
-| 1 | Andi Pratama | 1 | 2026-10-01 |
-| 1 | Andi Pratama | 2 | 2026-10-05 |
-| 2 | Budi Santoso | 3 | 2026-10-07 |
-| 2 | Budi Santoso | 6 | 2026-10-15 |
-| 3 | Citra Lestari | 4 | 2026-10-10 |
-| 4 | Dewi Anggraini | 5 | 2026-10-12 |
-| 5 | Eko Wijaya | **NULL** | **NULL** |
-| 6 | Fina Rahma | **NULL** | **NULL** |
+| id  | name           | order_id | order_date |
+| --- | -------------- | -------- | ---------- |
+| 1   | Andi Pratama   | 1        | 2026-10-01 |
+| 1   | Andi Pratama   | 2        | 2026-10-05 |
+| 2   | Budi Santoso   | 3        | 2026-10-07 |
+| 2   | Budi Santoso   | 6        | 2026-10-15 |
+| 3   | Citra Lestari  | 4        | 2026-10-10 |
+| 4   | Dewi Anggraini | 5        | 2026-10-12 |
+| 5   | Eko Wijaya     | **NULL** | **NULL**   |
+| 6   | Fina Rahma     | **NULL** | **NULL**   |
 
 </div>
 
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -929,10 +960,10 @@ zoom: 0.9
 
 Jalankan versi `INNER JOIN` dari query yang sama, lalu bandingkan:
 
-| Query | Jumlah baris | Eko & Fina |
-|---|---|---|
-| `customers INNER JOIN orders` | **6** | Hilang |
-| `customers LEFT JOIN orders` | **8** | Tampil dengan `NULL` |
+| Query                         | Jumlah baris | Eko & Fina           |
+| ----------------------------- | ------------ | -------------------- |
+| `customers INNER JOIN orders` | **6**        | Hilang               |
+| `customers LEFT JOIN orders`  | **8**        | Tampil dengan `NULL` |
 
 <div class="mt-4 p-3 rounded bg-yellow-50">
 
@@ -941,6 +972,7 @@ Selisih **2 baris** itulah **pelanggan tanpa pesanan**.
 </div>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -964,6 +996,7 @@ LEFT JOIN orders o ON o.customer_id = c.id;
 </div>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -986,6 +1019,7 @@ Bandingkan dengan Mini-Challenge 1.2 (INNER JOIN) yang hanya **7 baris**.
 </v-click>
 
 ---
+
 layout: two-cols
 zoom: 0.85
 ---
@@ -1024,6 +1058,7 @@ Tabel di **`FROM`** adalah tabel yang **"dilindungi"**.
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -1049,11 +1084,12 @@ Teknik ini dipakai untuk "pelanggan tidur", "produk tak laku", dan sejenisnya. D
 
 <div class="mt-4 p-3 rounded bg-red-50 text-sm">
 
-⚠️ Gunakan **`IS NULL`**, bukan `= NULL`. Perbandingan `NULL` dengan `=` tidak pernah bernilai *true*.
+⚠️ Gunakan **`IS NULL`**, bukan `= NULL`. Perbandingan `NULL` dengan `=` tidak pernah bernilai _true_.
 
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1088,6 +1124,7 @@ ORDER BY c.name, o.id;
 </div>
 
 ---
+
 layout: section
 ---
 
@@ -1096,6 +1133,7 @@ layout: section
 Cermin dari `LEFT JOIN`
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -1120,6 +1158,7 @@ ORDER BY o.id;
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -1137,9 +1176,9 @@ ORDER BY o.id;
 
 <div class="mt-4 p-3 rounded bg-blue-50 text-sm">
 
-💡 **Industri:** `RIGHT JOIN` **hampir tidak dipakai**. Otak membaca kiri → kanan: *"mulai dari tabel utama, tambahkan info pendukung."*
+💡 **Industri:** `RIGHT JOIN` **hampir tidak dipakai**. Otak membaca kiri → kanan: _"mulai dari tabel utama, tambahkan info pendukung."_
 Konvensi: **tabel utama di `FROM` + `LEFT JOIN`**.
-Kamu tetap perlu paham `RIGHT JOIN` karena akan menemukannya di *legacy code*.
+Kamu tetap perlu paham `RIGHT JOIN` karena akan menemukannya di _legacy code_.
 
 </div>
 
@@ -1148,18 +1187,19 @@ Kamu tetap perlu paham `RIGHT JOIN` karena akan menemukannya di *legacy code*.
 Tulis ulang Latihan 1.3.1 (semua pelanggan + pesanannya) memakai `RIGHT JOIN`, lalu bandingkan hasilnya.
 
 ---
+
 layout: default
 zoom: 0.85
 ---
 
 # 1.5 Rangkuman Pertemuan 1
 
-| Pertanyaan bisnis | JOIN yang dipilih |
-|---|---|
-| Pesanan **yang pelanggannya diketahui** | `INNER JOIN` |
-| **Semua** pelanggan, termasuk yang belum pesan | `customers LEFT JOIN orders` |
-| **Semua** produk, termasuk tanpa kategori | `products LEFT JOIN categories` |
-| **Semua** pesanan, termasuk pesanan tamu | `orders LEFT JOIN customers` |
+| Pertanyaan bisnis                              | JOIN yang dipilih               |
+| ---------------------------------------------- | ------------------------------- |
+| Pesanan **yang pelanggannya diketahui**        | `INNER JOIN`                    |
+| **Semua** pelanggan, termasuk yang belum pesan | `customers LEFT JOIN orders`    |
+| **Semua** produk, termasuk tanpa kategori      | `products LEFT JOIN categories` |
+| **Semua** pesanan, termasuk pesanan tamu       | `orders LEFT JOIN customers`    |
 
 **Tiga kalimat untuk diingat:**
 
@@ -1168,20 +1208,22 @@ zoom: 0.85
 3. Baris tanpa pasangan berisi **`NULL`** di kolom tabel yang tidak punya pasangan
 
 ---
+
 layout: default
 zoom: 0.85
 ---
 
 # ⚠️ Kesalahan Umum Pemula
 
-| Gejala | Penyebab | Solusi |
-|---|---|---|
-| `Column 'id' ... is ambiguous` | Kolom sama ada di 2 tabel | Beri prefix alias (`o.id`) |
+| Gejala                          | Penyebab                               | Solusi                                      |
+| ------------------------------- | -------------------------------------- | ------------------------------------------- |
+| `Column 'id' ... is ambiguous`  | Kolom sama ada di 2 tabel              | Beri prefix alias (`o.id`)                  |
 | Baris lebih sedikit dari dugaan | `INNER JOIN` padahal butuh `LEFT JOIN` | Tanya: "baris tanpa pasangan boleh hilang?" |
-| Hasil berlipat ganda | `ON` salah atau lupa `ON` | Pastikan `ON` menghubungkan **FK = PK** |
-| `Unknown column 'c.name'` | Alias tidak sama dengan yang di `FROM` | Cek penulisan alias |
+| Hasil berlipat ganda            | `ON` salah atau lupa `ON`              | Pastikan `ON` menghubungkan **FK = PK**     |
+| `Unknown column 'c.name'`       | Alias tidak sama dengan yang di `FROM` | Cek penulisan alias                         |
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1200,14 +1242,15 @@ zoom: 0.8
 
 **Susunan soal**
 
-| Bagian | Topik | Soal |
-|---|---|---|
-| A | INNER JOIN | 1–6 |
-| B | LEFT JOIN | 7–12 |
-| C | RIGHT JOIN | 13–15 |
-| D | Gabungan | 16–20 |
+| Bagian | Topik      | Soal  |
+| ------ | ---------- | ----- |
+| A      | INNER JOIN | 1–6   |
+| B      | LEFT JOIN  | 7–12  |
+| C      | RIGHT JOIN | 13–15 |
+| D      | Gabungan   | 16–20 |
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -1222,6 +1265,7 @@ zoom: 0.75
 6. Kembangkan soal 5: tambahkan kolom `subtotal` (`quantity × unit_price`), lalu urutkan dari subtotal **terbesar**.
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -1236,6 +1280,7 @@ zoom: 0.75
 12. Tampilkan **semua produk** beserta `order_id` tempat produk dibeli (`products LEFT JOIN order_items`). Produk apa yang tidak punya `order_id`?
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -1254,6 +1299,7 @@ zoom: 0.75
 17. Dari soal 16, saring hanya pesanan **`completed`** dan urutkan berdasarkan tanggal pesanan.
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -1262,7 +1308,7 @@ zoom: 0.75
 
 18. Tampilkan semua pesanan dengan tanggal **setelah 2026-10-05**, lengkap dengan nama pelanggan. Pesanan tamu tetap tampil dengan tulisan `'Tamu'`.
 19. Tampilkan **nama produk yang pernah dipesan** beserta nama kategorinya, **tanpa duplikat** (`DISTINCT`). Produk tanpa kategori tetap tampil.
-20. ✍️ **Studi kasus:** Manajer meminta laporan *"seluruh pelanggan beserta jumlah pesanannya, termasuk yang belum pernah belanja"*. Jenis JOIN apa yang kamu pilih dan tabel mana yang ditulis di `FROM`? Jelaskan alasannya dalam 2–3 kalimat, lalu tulis querynya (cukup `SELECT` nama pelanggan dan id pesanan).
+20. ✍️ **Studi kasus:** Manajer meminta laporan _"seluruh pelanggan beserta jumlah pesanannya, termasuk yang belum pernah belanja"_. Jenis JOIN apa yang kamu pilih dan tabel mana yang ditulis di `FROM`? Jelaskan alasannya dalam 2–3 kalimat, lalu tulis querynya (cukup `SELECT` nama pelanggan dan id pesanan).
 
 <div class="mt-6 p-3 rounded bg-green-50 text-sm">
 
@@ -1271,6 +1317,7 @@ zoom: 0.75
 </div>
 
 ---
+
 layout: section
 ---
 
@@ -1279,6 +1326,7 @@ layout: section
 FULL JOIN · Anti-Join · JOIN Tingkat Industri
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -1298,6 +1346,7 @@ Pastikan database `nusantara_mart` masih lengkap. Jika ragu, jalankan ulang skri
 </div>
 
 ---
+
 layout: section
 ---
 
@@ -1306,6 +1355,7 @@ layout: section
 **Semua** baris dari kedua tabel
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -1322,20 +1372,21 @@ Dengan kata lain: **`LEFT JOIN` + `RIGHT JOIN`** dalam satu hasil.
 
 <div class="mt-4 p-3 rounded bg-red-50 text-sm">
 
-⚠️ **MySQL / MariaDB tidak punya `FULL JOIN`.** Menjalankannya menghasilkan *syntax error*. Solusinya: **meniru** dengan `LEFT JOIN` + `RIGHT JOIN`.
+⚠️ **MySQL / MariaDB tidak punya `FULL JOIN`.** Menjalankannya menghasilkan _syntax error_. Solusinya: **meniru** dengan `LEFT JOIN` + `RIGHT JOIN`.
 
 </div>
 
 <div class="mt-3 text-sm">
 
-| Database | Dukungan `FULL JOIN` |
-|---|---|
-| PostgreSQL, SQL Server, Oracle, SQLite (≥ 3.39) | ✅ Didukung |
-| **MySQL, MariaDB** | ❌ Tidak didukung |
+| Database                                        | Dukungan `FULL JOIN` |
+| ----------------------------------------------- | -------------------- |
+| PostgreSQL, SQL Server, Oracle, SQLite (≥ 3.39) | ✅ Didukung          |
+| **MySQL, MariaDB**                              | ❌ Tidak didukung    |
 
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1357,13 +1408,14 @@ RIGHT JOIN orders o ON o.customer_id = c.id
 WHERE c.id IS NULL;
 ```
 
-| Bagian | Isi |
-|---|---|
-| Query atas (`LEFT JOIN`) | Semua pelanggan + pasangannya (8 baris, termasuk Eko & Fina) |
-| Query bawah (`RIGHT JOIN` + `WHERE c.id IS NULL`) | **Hanya** pesanan tanpa pelanggan (1 baris, #7) |
-| `UNION ALL` | Menyambung keduanya tanpa membuang baris |
+| Bagian                                            | Isi                                                          |
+| ------------------------------------------------- | ------------------------------------------------------------ |
+| Query atas (`LEFT JOIN`)                          | Semua pelanggan + pasangannya (8 baris, termasuk Eko & Fina) |
+| Query bawah (`RIGHT JOIN` + `WHERE c.id IS NULL`) | **Hanya** pesanan tanpa pelanggan (1 baris, #7)              |
+| `UNION ALL`                                       | Menyambung keduanya tanpa membuang baris                     |
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -1393,6 +1445,7 @@ FULL JOIN orders o ON o.customer_id = c.id;
 ```
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1419,6 +1472,7 @@ WHERE p.id IS NULL;
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1445,13 +1499,14 @@ WHERE c.id IS NULL;
 
 <div class="text-sm">
 
-✅ **9 baris**: Eko & Fina = *Pelanggan tanpa pesanan*, pesanan #7 = *Pesanan tanpa pelanggan*, sisanya *Normal*.
+✅ **9 baris**: Eko & Fina = _Pelanggan tanpa pesanan_, pesanan #7 = _Pesanan tanpa pelanggan_, sisanya _Normal_.
 
 🧠 `FULL JOIN` jarang untuk laporan harian. Kegunaan utamanya **audit dan rekonsiliasi data**, misalnya mencocokkan transaksi aplikasi dengan data payment gateway.
 
 </div>
 
 ---
+
 layout: section
 ---
 
@@ -1460,6 +1515,7 @@ layout: section
 Mencari data **tanpa pasangan**
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -1488,6 +1544,7 @@ WHERE o.id IS NULL;
 🔮 Siapa yang muncul? → ✅ **Eko Wijaya** dan **Fina Rahma**
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -1504,7 +1561,7 @@ Jika memakai kolom yang **boleh `NULL`** (misalnya `o.customer_id`), kamu bisa s
 
 <div class="mt-4 p-3 rounded bg-blue-50 text-sm">
 
-💡 **Industri:** pola ini dipakai untuk kampanye "pelanggan tidur", pembersihan produk tak laku, dan pencarian data yatim (*orphan*) **sebelum migrasi database**.
+💡 **Industri:** pola ini dipakai untuk kampanye "pelanggan tidur", pembersihan produk tak laku, dan pencarian data yatim (_orphan_) **sebelum migrasi database**.
 
 </div>
 
@@ -1515,6 +1572,7 @@ Ada cara lain memakai subquery. Itu dibahas di **modul berikutnya**.
 </div>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -1547,6 +1605,7 @@ Tulis query sendiri untuk menampilkan **kategori yang belum punya produk**.
 </v-click>
 
 ---
+
 layout: center
 class: text-center
 ---
@@ -1554,6 +1613,7 @@ class: text-center
 # ☕ Istirahat 15 Menit
 
 ---
+
 layout: section
 ---
 
@@ -1562,6 +1622,7 @@ layout: section
 `ON` vs `WHERE` · Duplikasi baris · `NULL`
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1604,29 +1665,32 @@ ORDER BY c.name;
 🔮 Berapa baris masing-masing? Apakah Eko, Fina, dan Citra muncul?
 
 ---
+
 layout: default
 zoom: 0.8
 ---
 
 # Jebakan 1: Hasilnya
 
-| Versi | Baris | Eko, Fina, Citra |
-|---|---|---|
-| A (`ON`) | **7** | Tampil, kolom pesanan `NULL` |
-| B (`WHERE`) | **4** | **Hilang** |
+| Versi       | Baris | Eko, Fina, Citra             |
+| ----------- | ----- | ---------------------------- |
+| A (`ON`)    | **7** | Tampil, kolom pesanan `NULL` |
+| B (`WHERE`) | **4** | **Hilang**                   |
 
-- **`ON`** bekerja **saat penggabungan**: pesanan yang tidak memenuhi syarat dianggap *tidak berpasangan*, tetapi pelanggannya **tetap dipertahankan** oleh `LEFT JOIN`
+- **`ON`** bekerja **saat penggabungan**: pesanan yang tidak memenuhi syarat dianggap _tidak berpasangan_, tetapi pelanggannya **tetap dipertahankan** oleh `LEFT JOIN`
 - **`WHERE`** bekerja **setelah penggabungan**: baris dengan `status` `NULL` (Eko, Fina) atau `cancelled` (Citra) langsung **disaring**. `LEFT JOIN` berubah diam-diam menjadi `INNER JOIN`
 
 <div class="mt-3 p-3 rounded bg-yellow-50 text-sm">
 
 🧠 **Aturan praktis**
+
 - Syarat pada tabel **kanan** yang ingin tetap mempertahankan baris kiri → **`ON`**
 - Syarat pada tabel **kiri** (tabel utama) → **`WHERE`**
 
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1652,13 +1716,14 @@ WHERE c.name = 'Andi Pratama';
 
 <div class="p-3 rounded bg-red-50 text-sm mt-2">
 
-⚠️ **Penyebab nomor satu laporan omzet yang salah.** Menjumlahkan kolom milik `orders` (misalnya `shipping_cost`) setelah JOIN ke `order_items` membuat nilainya terhitung **berkali-kali**. Tanyakan selalu: *"Apakah JOIN ini menggandakan baris yang sedang kuhitung?"*
+⚠️ **Penyebab nomor satu laporan omzet yang salah.** Menjumlahkan kolom milik `orders` (misalnya `shipping_cost`) setelah JOIN ke `order_items` membuat nilainya terhitung **berkali-kali**. Tanyakan selalu: _"Apakah JOIN ini menggandakan baris yang sedang kuhitung?"_
 
 </div>
 
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -1667,7 +1732,7 @@ zoom: 0.9
 
 Pesanan #7 memiliki `customer_id` = `NULL`.
 
-Kondisi `o.customer_id = c.id` bernilai **unknown** (bukan *true*) jika salah satu sisinya `NULL`.
+Kondisi `o.customer_id = c.id` bernilai **unknown** (bukan _true_) jika salah satu sisinya `NULL`.
 
 <div class="mt-4 p-4 rounded bg-yellow-50">
 
@@ -1675,19 +1740,21 @@ Itulah sebabnya pesanan tamu **tidak pernah** berpasangan dengan pelanggan mana 
 
 </div>
 
-| Ekspresi | Hasil |
-|---|---|
-| `NULL = NULL` | unknown (bukan true) |
-| `NULL = 5` | unknown |
-| `NULL IS NULL` | **true** |
+| Ekspresi       | Hasil                |
+| -------------- | -------------------- |
+| `NULL = NULL`  | unknown (bukan true) |
+| `NULL = 5`     | unknown              |
+| `NULL IS NULL` | **true**             |
 
 ---
+
 layout: section
 ---
 
 # 2.5 JOIN + Agregasi, VIEW, Performa
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1716,6 +1783,7 @@ ORDER BY completed_orders DESC, c.name;
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1738,18 +1806,19 @@ ORDER BY total_spent DESC;
 
 <div class="text-sm">
 
-| customer_name | total_spent |
-|---|---|
-| Andi Pratama | 9.800.000 |
-| Dewi Anggraini | 375.000 |
-| Budi Santoso | 210.000 |
-| Citra, Eko, Fina | 0 |
+| customer_name    | total_spent |
+| ---------------- | ----------- |
+| Andi Pratama     | 9.800.000   |
+| Dewi Anggraini   | 375.000     |
+| Budi Santoso     | 210.000     |
+| Citra, Eko, Fina | 0           |
 
 </div>
 
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.7
 ---
@@ -1788,13 +1857,14 @@ SELECT order_id, SUM(subtotal) AS total FROM v_order_details GROUP BY order_id;
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
 
 # Performa: Index pada Foreign Key 🧠
 
-JOIN **lambat** jika kolom penghubung **tidak ter-index**: database memeriksa tabel baris demi baris (*full table scan*).
+JOIN **lambat** jika kolom penghubung **tidak ter-index**: database memeriksa tabel baris demi baris (_full table scan_).
 
 ```sql
 SHOW INDEX FROM orders;
@@ -1815,6 +1885,7 @@ Lupa index pada kolom FK adalah penyebab klasik halaman aplikasi yang lambat set
 </div>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1828,11 +1899,11 @@ FROM customers c
 JOIN orders o ON o.customer_id = c.id;
 ```
 
-| Kolom | Arti |
-|---|---|
-| `key` | Index yang dipakai |
+| Kolom  | Arti                                                           |
+| ------ | -------------------------------------------------------------- |
+| `key`  | Index yang dipakai                                             |
 | `type` | Cara akses: `ref` / `eq_ref` bagus, `ALL` = scan seluruh tabel |
-| `rows` | Perkiraan baris yang diperiksa |
+| `rows` | Perkiraan baris yang diperiksa                                 |
 
 Untuk filter yang sering dipakai pada tabel besar, buat **index gabungan**:
 
@@ -1841,6 +1912,7 @@ CREATE INDEX idx_orders_status_date ON orders (status, order_date);
 ```
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1869,24 +1941,26 @@ $orders = Order::with('customer')->get();
 </div>
 
 ---
+
 layout: default
 zoom: 0.75
 ---
 
 # 💡 Checklist Menulis JOIN yang Baik
 
-| ✅ Lakukan | ❌ Hindari |
-|---|---|
-| `JOIN … ON` eksplisit | `FROM a, b WHERE a.id = b.a_id` (gaya lama, mudah lupa kondisi) |
-| Alias pendek + prefix kolom | Kolom tanpa prefix |
-| Menyebut kolom yang dibutuhkan saja | `SELECT *` pada query produksi |
-| Tabel utama di `FROM` + `LEFT JOIN` | `RIGHT JOIN` yang membingungkan |
-| `COALESCE` untuk menangani `NULL` | Menampilkan `NULL` mentah ke pengguna akhir |
-| `LEFT JOIN … IS NULL` untuk data tanpa pasangan | `WHERE kolom = NULL` (harus `IS NULL`) |
-| Index pada kolom FK dan kolom filter utama | JOIN pada kolom tanpa index di tabel besar |
-| `EXPLAIN` untuk query yang lambat | Menebak-nebak penyebab lambat |
+| ✅ Lakukan                                      | ❌ Hindari                                                      |
+| ----------------------------------------------- | --------------------------------------------------------------- |
+| `JOIN … ON` eksplisit                           | `FROM a, b WHERE a.id = b.a_id` (gaya lama, mudah lupa kondisi) |
+| Alias pendek + prefix kolom                     | Kolom tanpa prefix                                              |
+| Menyebut kolom yang dibutuhkan saja             | `SELECT *` pada query produksi                                  |
+| Tabel utama di `FROM` + `LEFT JOIN`             | `RIGHT JOIN` yang membingungkan                                 |
+| `COALESCE` untuk menangani `NULL`               | Menampilkan `NULL` mentah ke pengguna akhir                     |
+| `LEFT JOIN … IS NULL` untuk data tanpa pasangan | `WHERE kolom = NULL` (harus `IS NULL`)                          |
+| Index pada kolom FK dan kolom filter utama      | JOIN pada kolom tanpa index di tabel besar                      |
+| `EXPLAIN` untuk query yang lambat               | Menebak-nebak penyebab lambat                                   |
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1916,6 +1990,7 @@ FROM a LEFT JOIN b ON a.id = b.fk WHERE b.id IS NULL
 4. Kolom penghubungnya sudah **ter-index**?
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -1932,15 +2007,16 @@ zoom: 0.8
 - Soal bertanda ✍️ dijawab dengan kalimat singkat
 - Simpan dalam `lembar-kerja-2-NIM.sql` (jawaban tertulis berupa komentar `-- ...`)
 
-| Bagian | Topik | Soal |
-|---|---|---|
-| A | FULL JOIN (di MySQL) | 1–4 |
-| B | Anti-Join | 5–8 |
-| C | `ON` vs `WHERE` | 9–11 |
-| D | JOIN + Agregasi | 12–16 |
-| E | Duplikasi, VIEW, Performa | 17–20 |
+| Bagian | Topik                     | Soal  |
+| ------ | ------------------------- | ----- |
+| A      | FULL JOIN (di MySQL)      | 1–4   |
+| B      | Anti-Join                 | 5–8   |
+| C      | `ON` vs `WHERE`           | 9–11  |
+| D      | JOIN + Agregasi           | 12–16 |
+| E      | Duplikasi, VIEW, Performa | 17–20 |
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -1953,6 +2029,7 @@ zoom: 0.75
 4. ✍️ Pada soal 2, bagian query mana (atas atau bawah) yang menghasilkan baris **kategori tanpa produk**? Mengapa bagian bawah harus diberi `WHERE p.id IS NULL`, dan apa yang terjadi jika `WHERE` tersebut dihapus?
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -1963,9 +2040,10 @@ zoom: 0.75
 6. Tampilkan **kategori yang belum memiliki produk** memakai `LEFT JOIN … IS NULL`.
 7. Tampilkan produk yang **belum pernah terjual** (nama dan stok).
 8. Tampilkan pelanggan dari **Jember** yang **belum pernah memiliki pesanan berstatus `completed`**.
-   *Petunjuk: perhatikan letak syarat `status` di `ON` atau `WHERE`.*
+   _Petunjuk: perhatikan letak syarat `status` di `ON` atau `WHERE`._
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -1977,6 +2055,7 @@ zoom: 0.75
 11. Tampilkan semua pelanggan beserta **jumlah pesanan `completed`** miliknya (0 jika tidak ada). Gunakan `COUNT(o.id)`.
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -1990,6 +2069,7 @@ zoom: 0.75
 16. Tampilkan **jumlah pesanan per kota pelanggan** (`COUNT(DISTINCT o.id)`), hanya untuk kota dengan **lebih dari 1 pesanan**.
 
 ---
+
 layout: default
 zoom: 0.7
 ---
@@ -2011,6 +2091,7 @@ zoom: 0.7
 </div>
 
 ---
+
 layout: section
 ---
 
@@ -2018,19 +2099,20 @@ layout: section
 
 SELF JOIN · CROSS JOIN
 
-*Opsional / mandiri*
+_Opsional / mandiri_
 
 ---
+
 layout: default
 zoom: 0.9
 ---
 
 # Dua Jenis JOIN Lain 🧠
 
-| JOIN | Gagasan | Butuh `ON`? | Contoh kebutuhan |
-|---|---|---|---|
-| `SELF JOIN` | Tabel di-JOIN dengan **dirinya sendiri** | Ya | Karyawan dan atasannya, pelanggan sekota |
-| `CROSS JOIN` | **Semua kombinasi** baris kiri × kanan | Tidak | Varian produk (ukuran × warna), matriks laporan |
+| JOIN         | Gagasan                                  | Butuh `ON`? | Contoh kebutuhan                                |
+| ------------ | ---------------------------------------- | ----------- | ----------------------------------------------- |
+| `SELF JOIN`  | Tabel di-JOIN dengan **dirinya sendiri** | Ya          | Karyawan dan atasannya, pelanggan sekota        |
+| `CROSS JOIN` | **Semua kombinasi** baris kiri × kanan   | Tidak       | Varian produk (ukuran × warna), matriks laporan |
 
 <div class="mt-4 p-3 rounded bg-yellow-50 text-sm">
 
@@ -2039,6 +2121,7 @@ zoom: 0.9
 </div>
 
 ---
+
 layout: default
 zoom: 0.7
 ---
@@ -2073,6 +2156,7 @@ INSERT INTO colors (color_name) VALUES ('Hitam'), ('Putih'), ('Navy');
 ```
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -2084,41 +2168,41 @@ zoom: 0.8
 
 **staff** (self-reference)
 
-| Kolom | Tipe | Kunci |
-|---|---|---|
-| id | INT | PK |
-| name | VARCHAR(100) | |
-| position | VARCHAR(50) | |
-| manager_id | INT NULL | FK → **staff.id** |
+| Kolom      | Tipe         | Kunci             |
+| ---------- | ------------ | ----------------- |
+| id         | INT          | PK                |
+| name       | VARCHAR(100) |                   |
+| position   | VARCHAR(50)  |                   |
+| manager_id | INT NULL     | FK → **staff.id** |
 
 </div>
 <div>
 
 **sizes**
 
-| Kolom | Tipe | Kunci |
-|---|---|---|
-| size_code | VARCHAR(5) | PK |
+| Kolom     | Tipe       | Kunci |
+| --------- | ---------- | ----- |
+| size_code | VARCHAR(5) | PK    |
 
 **colors**
 
-| Kolom | Tipe | Kunci |
-|---|---|---|
-| color_name | VARCHAR(20) | PK |
+| Kolom      | Tipe        | Kunci |
+| ---------- | ----------- | ----- |
+| color_name | VARCHAR(20) | PK    |
 
 </div>
 <div>
 
 **Data staff**
 
-| id | name | manager_id |
-|---|---|---|
-| 1 | Rina Kusuma | NULL |
-| 2 | Dimas Aditya | 1 |
-| 3 | Sari Wulandari | 1 |
-| 4 | Joko Susilo | 2 |
-| 5 | Lina Marlina | 2 |
-| 6 | Tono Hartono | 3 |
+| id  | name           | manager_id |
+| --- | -------------- | ---------- |
+| 1   | Rina Kusuma    | NULL       |
+| 2   | Dimas Aditya   | 1          |
+| 3   | Sari Wulandari | 1          |
+| 4   | Joko Susilo    | 2          |
+| 5   | Lina Marlina   | 2          |
+| 6   | Tono Hartono   | 3          |
 
 </div>
 </div>
@@ -2130,12 +2214,14 @@ zoom: 0.8
 </div>
 
 ---
+
 layout: section
 ---
 
 # P.1 SELF JOIN
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -2155,6 +2241,7 @@ Untuk menampilkan **nama** atasan, `staff` dipakai **dua kali**: sebagai "karyaw
 ```
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -2181,6 +2268,7 @@ Prinsipnya sama dengan pesanan tamu di Pertemuan 1.
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -2205,6 +2293,7 @@ ORDER BY jumlah_bawahan DESC, m.name;
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -2230,6 +2319,7 @@ ORDER BY s.id;
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.75
 ---
@@ -2256,17 +2346,18 @@ ORDER BY a.city, a.id;
 🔮 Berapa baris tiap versi? (Jember dihuni Andi, Citra, Fina)
 
 ---
+
 layout: default
 zoom: 0.8
 ---
 
 # P.1.4 Hasilnya
 
-| Versi | Baris | Masalah |
-|---|---|---|
-| 1 | **12** | Pelanggan dipasangkan dengan **dirinya sendiri** (Andi–Andi) |
-| 2 | **6** | Setiap pasangan muncul **dua kali** (Andi–Citra dan Citra–Andi) |
-| 3 | **3** | ✅ Tepat: Andi–Citra, Andi–Fina, Citra–Fina |
+| Versi | Baris  | Masalah                                                         |
+| ----- | ------ | --------------------------------------------------------------- |
+| 1     | **12** | Pelanggan dipasangkan dengan **dirinya sendiri** (Andi–Andi)    |
+| 2     | **6**  | Setiap pasangan muncul **dua kali** (Andi–Citra dan Citra–Andi) |
+| 3     | **3**  | ✅ Tepat: Andi–Citra, Andi–Fina, Citra–Fina                     |
 
 <div class="mt-4 p-3 rounded bg-blue-50 text-sm">
 
@@ -2276,24 +2367,26 @@ zoom: 0.8
 
 <div class="mt-3 p-3 rounded bg-blue-50 text-sm">
 
-💡 **Industri: *adjacency list*.** Kolom `parent_id` / `manager_id` yang menunjuk ke tabel yang sama sangat umum: **kategori bertingkat** (Elektronik → Laptop → Laptop Gaming), **balasan komentar**, **struktur organisasi**. Jika kedalamannya tidak terbatas, `SELF JOIN` berantai tidak praktis. Dipakai teknik lain yang dibahas di modul lanjutan.
+💡 **Industri: _adjacency list_.** Kolom `parent_id` / `manager_id` yang menunjuk ke tabel yang sama sangat umum: **kategori bertingkat** (Elektronik → Laptop → Laptop Gaming), **balasan komentar**, **struktur organisasi**. Jika kedalamannya tidak terbatas, `SELF JOIN` berantai tidak praktis. Dipakai teknik lain yang dibahas di modul lanjutan.
 
 </div>
 
 ---
+
 layout: section
 ---
 
 # P.2 CROSS JOIN
 
 ---
+
 layout: default
 zoom: 0.85
 ---
 
 # P.2 CROSS JOIN: Konsep 🧠
 
-Memasangkan **setiap baris kiri dengan setiap baris kanan**, tanpa `ON` (*Cartesian product*).
+Memasangkan **setiap baris kiri dengan setiap baris kanan**, tanpa `ON` (_Cartesian product_).
 
 <div class="p-3 rounded bg-yellow-50 text-center">
 
@@ -2310,13 +2403,14 @@ Memasangkan **setiap baris kiri dengan setiap baris kanan**, tanpa `ON` (*Cartes
 ```
 
 ---
+
 layout: default
 zoom: 0.8
 ---
 
 # Latihan P.2.1 ⌨️ Varian Produk (SKU)
 
-*Kaos Polos* tersedia dalam 4 ukuran dan 3 warna. Daftar seluruh variannya:
+_Kaos Polos_ tersedia dalam 4 ukuran dan 3 warna. Daftar seluruh variannya:
 
 ```sql
 SELECT p.name AS product_name,
@@ -2339,6 +2433,7 @@ ORDER BY c.color_name, s.size_code;
 </v-click>
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -2368,6 +2463,7 @@ SELECT COUNT(*) FROM customers c JOIN orders o;
 </div>
 
 ---
+
 layout: default
 zoom: 0.7
 ---
@@ -2398,11 +2494,12 @@ ORDER BY c.name, cat.name;
 
 <div class="p-2 rounded bg-blue-50 text-xs">
 
-💡 **Industri: *gap filling*.** `CROSS JOIN` untuk kerangka laporan, `LEFT JOIN` untuk datanya. Umum pada dashboard: hari tanpa penjualan tetap tampil **0**, tidak hilang dari grafik. `CROSS JOIN` juga dipakai untuk **data uji** dan **varian produk**.
+💡 **Industri: _gap filling_.** `CROSS JOIN` untuk kerangka laporan, `LEFT JOIN` untuk datanya. Umum pada dashboard: hari tanpa penjualan tetap tampil **0**, tidak hilang dari grafik. `CROSS JOIN` juga dipakai untuk **data uji** dan **varian produk**.
 
 </div>
 
 ---
+
 layout: default
 zoom: 0.85
 ---
@@ -2419,14 +2516,15 @@ FROM customers a JOIN customers b ON a.city = b.city
 FROM sizes s CROSS JOIN colors c
 ```
 
-| | `SELF JOIN` | `CROSS JOIN` |
-|---|---|---|
-| Alias wajib? | **Ya** (dua peran, satu tabel) | Disarankan |
-| Kondisi `ON` | Ada | **Tidak ada** |
-| Jumlah baris | Tergantung kecocokan | **Selalu** m × n |
+|              | `SELF JOIN`                             | `CROSS JOIN`         |
+| ------------ | --------------------------------------- | -------------------- |
+| Alias wajib? | **Ya** (dua peran, satu tabel)          | Disarankan           |
+| Kondisi `ON` | Ada                                     | **Tidak ada**        |
+| Jumlah baris | Tergantung kecocokan                    | **Selalu** m × n     |
 | Risiko utama | Pasangan ganda atau dengan diri sendiri | Ledakan jumlah baris |
 
 ---
+
 layout: default
 zoom: 0.8
 ---
@@ -2436,13 +2534,14 @@ zoom: 0.8
 Gunakan `nusantara_mart` beserta tabel `staff`, `sizes`, dan `colors`.
 
 1. Tampilkan karyawan beserta atasannya, **hanya** untuk karyawan yang atasannya bernama **Dimas Aditya**.
-2. Tampilkan karyawan yang **tidak punya bawahan** memakai `SELF JOIN` dan `IS NULL`. *(Petunjuk: Joko, Lina, Tono)*
+2. Tampilkan karyawan yang **tidak punya bawahan** memakai `SELF JOIN` dan `IS NULL`. _(Petunjuk: Joko, Lina, Tono)_
 3. Tampilkan pasangan karyawan yang **berjabatan sama** (`position`), tanpa duplikasi dan tanpa pasangan dengan diri sendiri.
-4. Buat daftar **seluruh varian SKU** untuk *Jaket Hoodie* (id 4) dengan ukuran `M`, `L`, `XL` saja, untuk **semua warna**. Berapa baris?
+4. Buat daftar **seluruh varian SKU** untuk _Jaket Hoodie_ (id 4) dengan ukuran `M`, `L`, `XL` saja, untuk **semua warna**. Berapa baris?
 5. Buat semua kombinasi **kategori × ukuran** (`categories` × `sizes`). Berapa baris? ✍️ Sebutkan satu situasi nyata ketika kombinasi seperti ini bermanfaat.
 6. ✍️ Jelaskan perbedaan **jumlah baris** antara `SELF JOIN` dengan `a.id <> b.id` dan `a.id < b.id`. Mengapa untuk pasangan, versi kedua lebih tepat?
 
 ---
+
 layout: default
 zoom: 0.9
 ---
@@ -2451,7 +2550,7 @@ zoom: 0.9
 
 Beberapa hal untuk dibawa pulang:
 
-1. **JOIN adalah cara menghubungkan data yang sengaja dipisah**, bukan sekadar sintaks hafalan. Mulai dari pertanyaan: *"baris mana yang tidak boleh hilang?"*
+1. **JOIN adalah cara menghubungkan data yang sengaja dipisah**, bukan sekadar sintaks hafalan. Mulai dari pertanyaan: _"baris mana yang tidak boleh hilang?"_
 2. **`LEFT JOIN`** pilihan utama untuk laporan, **`INNER JOIN`** untuk data yang pasti berpasangan, **`FULL JOIN`** untuk audit
 3. Waspadai **tiga jebakan**: `ON` vs `WHERE`, duplikasi baris, dan `NULL`
 4. Aplikasi yang baik memikirkan **performa** sejak awal: index FK, `EXPLAIN`, hindari N+1
@@ -2463,6 +2562,7 @@ Beberapa hal untuk dibawa pulang:
 </div>
 
 ---
+
 layout: end
 class: text-center
 ---
