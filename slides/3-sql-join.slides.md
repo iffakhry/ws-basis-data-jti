@@ -8,6 +8,7 @@ layout: cover
 class: text-center
 canvasWidth: 1100
 aspectRatio: 16/9
+colorSchema: light
 highlighter: shiki
 lineNumbers: false
 transition: slide-left
